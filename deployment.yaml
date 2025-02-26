@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: dpy-home
+  labels:
+    app: hostname
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hostname
+  template:
+    metadata:
+      labels:
+        app: hostname
+    spec:
+      containers:
+        - name: hname
+          image: songseungsoo/hostname:latest
+          ports:
+            - containerPort: 80
